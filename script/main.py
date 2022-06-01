@@ -1,7 +1,6 @@
 # This Python file uses the following encoding: utf-8
 
 def electric_car_average():
-    # De acordo com a General Motors, o Chevrolet Bolt tem uma bateria de 66 kWh e autonomia de 416 km.
 
     reference = 100
     try:
@@ -18,11 +17,17 @@ def electric_car_average():
 
 def average_car_combustion():
 
-    a = input()
+    reference = 100
 
+    car_combustion_liter_per_km = int(input("Média de quilômetros percorridos por litro gasto (exemplo: 1L == 1km): "))
+    car_combustion_liter_price = float(input("Digite o valor da gasolina (exemplo: 4,0): "))
+    car_combustion_liter_per_100km = car_combustion_liter_price * car_combustion_liter_per_km
+
+    print(car_combustion_liter_per_100km)
 
 def init():
     electric_car_average()
+    average_car_combustion()
 
 
 init()
