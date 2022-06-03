@@ -4,6 +4,7 @@ def input_value_universal():
 
     try:
         #distance_param = int(input("Digite uma distância para ser usada como parâmetro (exemplo: 100 km): "))
+        print("-----------------------------------------------------------------------------")
         price_param = float(input("Digite um valor para ser comparado entre o carro elétrico e o carro a combustão (exemplo: 7.8 reais): "))
     except:
         print("Digite valores coerentes.")
@@ -38,7 +39,7 @@ def electric_car_average():
           f"R${car_combustion_price_per_reference}\n")
 
     print(f"O quão econômico o carro elétrico é: "
-          f"{how_much_better_is} vezes menor do que o valor do carro a combustão")
+          f"{how_much_better_is} vezes menos do valor do carro a combustão")
 
 
 def average_car_combustion():
@@ -53,11 +54,27 @@ def average_car_combustion():
 
     car_combustion_price_per_reference = car_combustion_liter_price * car_combustion_km_per_liter
 
-def init():
 
-    input_value_universal()
-    average_car_combustion()
-    electric_car_average()
+def verify_loop():
+    global aux
+
+    print("-----------------------------------------------------------------------------")
+    verify = input("Gostaria de calcular o consumo novamente? ").upper()
+
+    if verify != "SIM":
+        aux = False
+
+
+def init():
+    global aux
+
+    aux = True
+
+    while aux:
+        input_value_universal()
+        average_car_combustion()
+        electric_car_average()
+        verify_loop()
 
 
 init()
